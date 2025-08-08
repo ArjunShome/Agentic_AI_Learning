@@ -1,5 +1,7 @@
 import logging
+import structlog as sl
 import coloredlogs
+
 
 # ANSI color codes for terminal outputs
 COLOR_DEBUG = '\e[0;36m'     # cyan
@@ -20,6 +22,9 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.formats.get(record.levelno, self._fmt)
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
+
+def getLogger(name):
+    return sl.get_logger(name)
 
 logger = logging.getLogger('Agentic_AI_Learning')
 logger.setLevel(logging.DEBUG)

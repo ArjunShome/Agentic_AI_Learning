@@ -24,7 +24,7 @@ class ParseLocalEnv:
     @classmethod
     def get_env_values(cls):
         cls()
-        dict_env = None
+        dict_env = {}
         for var_key in REQ_ENV_VARIABLES:
             if os.getenv(var_key):
                 dict_env[var_key] = os.getenv(var_key)
